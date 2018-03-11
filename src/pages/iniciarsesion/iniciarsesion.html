@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Iniciar Sesión</ion-title>
+    <ion-buttons left>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form #formulario="ngForm">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Correo Electrónico</ion-label>
+          <ion-input type="email"
+                     required
+                     name="correo"
+                     ngModel></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input type="password"
+                     required
+                     name="clave"
+                     ngModel
+                     [minLegth]="8"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <button ion-button block 
+            (click)="iniciarSesion(formulario)">
+            INICIAR SESIÓN
+          </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          <button ion-button block color="danger"  
+            (click)="registrarUsuario(formulario)">
+            REGISTRARSE
+          </button>
+      </ion-col>
+    </ion-row>
+  </form>
+
+</ion-content>

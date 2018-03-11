@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Restaurantes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let restaurante of restaurantes; let i = index" 
+            (click)="mostrarRestaurante(restaurante, i)">
+    <img [src]="restaurante.imagenes[0]">
+    <div class="card-title">{{ restaurante.nombre }}</div>
+    <div class="card-subtitle">{{ restaurante.rating }} estrellas</div>
+  </ion-card>
+  <ion-fab bottom right>
+    <button ion-fab color="primary" [navPush]="agregarRestaurantePage">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

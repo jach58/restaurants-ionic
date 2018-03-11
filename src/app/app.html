@@ -1,0 +1,20 @@
+<ion-menu [content]="contenido">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Menú
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngIf="usuarioEstaConectado"
+            (click)="llamarPagina(homepage)">Inicio</button>
+      <button ion-item *ngIf="!usuarioEstaConectado" 
+            (click)="llamarPagina(iniciarSesion)">Iniciar Sesión</button>
+      <button ion-item *ngIf="usuarioEstaConectado"
+            (click)="terminarSesion()">Terminar Sesión</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="iniciarSesion" #contenido></ion-nav>

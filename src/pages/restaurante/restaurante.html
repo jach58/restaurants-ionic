@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only (click)="cerrar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="compartirConWhatsApp()">
+        <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <h2>{{ restaurante.nombre }}</h2>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <sebm-google-map
+      [latitude]="restaurante.ubicacion.lat"
+      [longitude]="restaurante.ubicacion.lng"
+      [zoom]="3"
+      [streetViewControl]="false">
+        <sebm-google-map-marker
+        [latitude]="restaurante.ubicacion.lat"
+        [longitude]="restaurante.ubicacion.lng">
+        </sebm-google-map-marker>
+      </sebm-google-map>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-slides pager>
+      <ion-slide *ngFor="let imagen of restaurante.imagenes">
+        <img [src]="imagen">
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <ion-row>
+      <button ion-button block color="danger" (click)="borrar()">Borrar</button>
+  </ion-row>
+</ion-grid>
+</ion-content>
